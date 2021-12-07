@@ -42,3 +42,5 @@ This would mean fights that would be over in one single attack (10000 dmg over 1
 This solutions presents the following 2 revisions:
 1. FB is calculated with a random number between 0 and 2, instead of 0 and 9.
 2. Each attack calculation is no longer multiplied by FB, so the final values will depend on FB alone (from the corrected stats) instead of FB^2.
+
+Nevertheless, the branch `original-calculations` presents a solution to the problem using the original calculations, in case of them being needed.
