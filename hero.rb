@@ -25,15 +25,15 @@ class Hero
   end
 
   def mental_attack
-    @mental_attack ||= (@intelligence * 0.7 + @speed * 0.2 + @combat * 0.1)
+    @mental_attack ||= (@intelligence * 0.7 + @speed * 0.2 + @combat * 0.1) * @filiation_coefficient
   end
 
   def strong_attack
-    @strong_attack ||= (@strength * 0.6 + @power * 0.2 + @combat * 0.2)
+    @strong_attack ||= (@strength * 0.6 + @power * 0.2 + @combat * 0.2) * @filiation_coefficient
   end
 
   def fast_attack
-    @fast_attack ||= (@speed * 0.55 + @durability * 0.25 + @strength * 0.2)
+    @fast_attack ||= (@speed * 0.55 + @durability * 0.25 + @strength * 0.2) * @filiation_coefficient
   end
 
   def update_stats
@@ -66,7 +66,7 @@ class Team
 
   def calculate_filiations_and_update
     @heroes.each do |hero|
-      initial_coefficient = rand(1..3).to_f
+      initial_coefficient = rand(1..10).to_f
       hero.filiation_coefficient = hero.alignment == @team_alignment ? initial_coefficient : 1 / initial_coefficient
       hero.update_stats
     end
